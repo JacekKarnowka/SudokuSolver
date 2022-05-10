@@ -1,1 +1,1 @@
-Sudoku Solver with the use of backtracking algorithm.
+Sudoku Solver using a backtracking algorithm.
