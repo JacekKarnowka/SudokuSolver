@@ -1,1 +1,1 @@
-Sudoku Solver using a backtracking algorithm.
+##### Sudoku Solver using a backtracking algorithm.
