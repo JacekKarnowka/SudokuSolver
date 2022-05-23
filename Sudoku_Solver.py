@@ -1,22 +1,30 @@
 class sudoku_board:
-    def __init__(self):
+    def __init__(self, file_name):
         # Load sudoku board from "Sudoku_to_solve.txt" file
         try:
-            with open("./Sudoku_to_solve.txt") as f:
+            with open(file_name) as f:
                 lines = f.readlines()
 
+        except FileNotFoundError:
+            raise Exception("File not found!")
+        
+        try:
+            
             rows = [i.split("\n")[0] for i in lines]
 
             sudoku = [[int(j) for j in i.split(",")] for i in rows]
 
             for check_rows in rows:
                 if len(check_rows) != 17:
-                    raise Exception("Wrong lenght of data!")
+                    raise Exception("Wrong lenght of data")
 
             if len(sudoku) != 9:
                 raise Exception("Wrong lenght of data!")
+                
+            
 
             self.board = sudoku
+
 
         except Exception as err:
             print("Error: {}".format(err))
@@ -84,9 +92,4 @@ class sudoku_board:
         return True
 
 
-board_1 = sudoku_board()
-if board_1.solver():
-    print("Sudoku solved!")
-    board_1.print_board()
-else:
-    print("Sudoku unsolvable")
+
